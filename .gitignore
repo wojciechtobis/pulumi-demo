@@ -5,3 +5,5 @@ pulumi-basic/obj/
 pulumi-basic/bin/
 terraform/terraform.tfstate
 pulumi-basic/relativity-crossguard/node_modules/
+pulumi-automation-api/obj/
+pulumi-automation-api/bin/
