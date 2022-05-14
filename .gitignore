@@ -1,1 +1,6 @@
 .dccache
+pulumi-basic/.pulumi/
+pulumi-basic/.vs/
+pulumi-basic/obj/
+pulumi-basic/bin/
+terraform/terraform.tfstate

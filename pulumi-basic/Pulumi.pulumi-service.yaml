@@ -1,0 +1,5 @@
+config:
+  azure-native:location: centralus
+  pulumi:template: azure-csharp
+  custom:resourceGroupName: Pulumi-basic-demo
+  custom:storageAccountName: pulumisa8df80136

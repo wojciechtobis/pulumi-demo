@@ -1,0 +1,6 @@
+encryptionsalt: v1:7JCGVQ8S/dg=:v1:5thf2WFj2yKJv/Rk:2ePXyIps06Sf02n3tAHCP+W7vs9wSA==
+config:
+  azure-native:location: centralus
+  custom:resourceGroupName: Pulumi-basic-local-demo
+  custom:storageAccountName: pulumisae037acfb
+  pulumi:template: azure-csharp
