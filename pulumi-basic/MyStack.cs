@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pulumi;
 using Pulumi.AzureNative.Resources;
 using Pulumi.AzureNative.Storage;
@@ -31,15 +32,25 @@ internal class MyStack : Stack
             Kind = Kind.Storage
         });
 
-        const string containerName = "test1";
-        _ = new BlobContainer(containerName, new BlobContainerArgs
+        foreach (var containerName in GetContainers())
         {
-            AccountName = storageAccount.Name,
-            ContainerName = containerName,
-            ResourceGroupName = resourceGroup.Name,
-            PublicAccess = PublicAccess.None,
-            DenyEncryptionScopeOverride = false,
-            DefaultEncryptionScope = "$account-encryption-key"
-        });
+           _ = new BlobContainer(containerName, new BlobContainerArgs
+           {
+               AccountName = storageAccount.Name,
+               ContainerName = containerName,
+               ResourceGroupName = resourceGroup.Name,
+               PublicAccess = PublicAccess.None,
+               DenyEncryptionScopeOverride = false,
+               DefaultEncryptionScope = "$account-encryption-key"
+           });
+        }
+    }
+
+
+    private static IEnumerable<string> GetContainers()
+    {
+        yield return "test1";
+        yield return "test2";
+        yield return "test3";
     }
 }
