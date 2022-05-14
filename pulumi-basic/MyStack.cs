@@ -54,10 +54,4 @@ internal class MyStack : Stack
             Metadata = metadata
         });
     }
-
-
-    private static IEnumerable<string> GetContainers()
-    {
-        yield return "test1";
-    }
 }
