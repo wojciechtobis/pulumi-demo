@@ -32,26 +32,32 @@ internal class MyStack : Stack
             Kind = Kind.Storage
         });
 
-        foreach (var containerName in GetContainers())
+        // Secret metadata container
+        const string containerName = "test1";
+        var secretMetadataValue = customConfig.RequireSecret("secretMetadataValue");
+
+        var metadata = customConfig
+            .RequireSecret("secretMetadataValue")
+            .Apply(s => new Dictionary<string, string>
+                {
+                    { "secretMessage", s },
+                });
+
+        _ = new BlobContainer(containerName, new BlobContainerArgs
         {
-           _ = new BlobContainer(containerName, new BlobContainerArgs
-           {
-               AccountName = storageAccount.Name,
-               ContainerName = containerName,
-               ResourceGroupName = resourceGroup.Name,
-               PublicAccess = PublicAccess.None,
-               DenyEncryptionScopeOverride = false,
-               DefaultEncryptionScope = "$account-encryption-key"
-           });
-        }
+            AccountName = storageAccount.Name,
+            ContainerName = containerName,
+            ResourceGroupName = resourceGroup.Name,
+            PublicAccess = PublicAccess.None,
+            DenyEncryptionScopeOverride = false,
+            DefaultEncryptionScope = "$account-encryption-key",
+            Metadata = metadata
+        });
     }
 
 
     private static IEnumerable<string> GetContainers()
     {
         yield return "test1";
-        yield return "test2";
-        yield return "test3";
-        yield return "test4";
     }
 }
