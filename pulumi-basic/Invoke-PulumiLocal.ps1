@@ -3,9 +3,8 @@ try {
     Write-Host "Pulumi login"
     pulumi login file://$localPulumiPath
 
-    Write-Host "Pulumi set secret + up"
-    pulumi config set --secret custom:secretMetadataValue pulumiIsCool
-    pulumi up
+    Write-Host "Pulumi preview + policy pack"
+    pulumi preview --policy-pack relativity-crossguard
 }
 finally {
     pulumi logout

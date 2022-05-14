@@ -4,3 +4,4 @@ pulumi-basic/.vs/
 pulumi-basic/obj/
 pulumi-basic/bin/
 terraform/terraform.tfstate
+pulumi-basic/relativity-crossguard/node_modules/

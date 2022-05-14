@@ -32,26 +32,15 @@ internal class MyStack : Stack
             Kind = Kind.Storage
         });
 
-        // Secret metadata container
         const string containerName = "test1";
-        var secretMetadataValue = customConfig.RequireSecret("secretMetadataValue");
-
-        var metadata = customConfig
-            .RequireSecret("secretMetadataValue")
-            .Apply(s => new Dictionary<string, string>
-                {
-                    { "secretMessage", s },
-                });
-
         _ = new BlobContainer(containerName, new BlobContainerArgs
         {
             AccountName = storageAccount.Name,
             ContainerName = containerName,
             ResourceGroupName = resourceGroup.Name,
-            PublicAccess = PublicAccess.None,
+            PublicAccess = PublicAccess.Container,
             DenyEncryptionScopeOverride = false,
-            DefaultEncryptionScope = "$account-encryption-key",
-            Metadata = metadata
+            DefaultEncryptionScope = "$account-encryption-key"
         });
     }
 
