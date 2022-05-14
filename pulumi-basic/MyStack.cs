@@ -43,10 +43,4 @@ internal class MyStack : Stack
             DefaultEncryptionScope = "$account-encryption-key"
         });
     }
-
-
-    private static IEnumerable<string> GetContainers()
-    {
-        yield return "test1";
-    }
 }
