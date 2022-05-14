@@ -52,5 +52,6 @@ internal class MyStack : Stack
         yield return "test1";
         yield return "test2";
         yield return "test3";
+        yield return "test4";
     }
 }
