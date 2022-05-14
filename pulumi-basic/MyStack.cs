@@ -38,7 +38,7 @@ internal class MyStack : Stack
             AccountName = storageAccount.Name,
             ContainerName = containerName,
             ResourceGroupName = resourceGroup.Name,
-            PublicAccess = PublicAccess.Container,
+            PublicAccess = PublicAccess.None,
             DenyEncryptionScopeOverride = false,
             DefaultEncryptionScope = "$account-encryption-key"
         });
