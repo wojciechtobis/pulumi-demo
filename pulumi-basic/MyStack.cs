@@ -34,8 +34,7 @@ internal class MyStack : Stack
 
         // Secret metadata container
         const string containerName = "test1";
-        var secretMetadataValue = customConfig.RequireSecret("secretMetadataValue");
-
+        
         var metadata = customConfig
             .RequireSecret("secretMetadataValue")
             .Apply(s => new Dictionary<string, string>
